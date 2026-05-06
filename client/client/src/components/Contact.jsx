@@ -16,7 +16,7 @@ export default function Contact() {
     setLoading(true)
     setStatus(null)
     try {
-      const res = await fetch('http://localhost:5000/api/contact', {
+      const res = await fetch('https://portfolio1-dbzm.onrender.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
