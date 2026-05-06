@@ -31,10 +31,16 @@ const projects = [
   {
     title: 'Task Manager — Console App',
     emoji: '📋',
-    desc: 'Java console-based Task Manager to add, update, delete, and view tasks through CLI. Implemented input validation and modular logic using Java Collections.',
-    tags: ['Java', 'Collections', 'OOP', 'CLI'],
+    desc: 'Developed a real-time HeatWave Alert System during KPR Hackathon to monitor temperature and humidity data, predict dangerous heat conditions, and generate instant alerts for public safety. Integrated AI-driven analysis and responsive dashboards for real-time environmental monitoring.',    tags: ['Java', 'Collections', 'OOP', 'CLI'],
     github: 'https://github.com/Lathika-Sri/Console-Based-Project---JCF',
     color: '#f472b6',
+  },
+  {
+    title: 'HeatWave Alert System',
+    emoji: '🌞',
+    desc: 'Real-time heat wave detection and alert system built during KPR hackathon. Monitors heat index thresholds and triggers alerts to help communities respond to dangerous temperature conditions.',
+    tags: ['Spring Boot', 'React', 'AI Integration', 'REST API'],    github: 'https://github.com/Lathika-Sri/HeatWave-Alert-System---Hackthon-Project-KPR',
+    color: '#f56a1ae5',
   },
 ]
 
@@ -50,7 +56,7 @@ export default function Projects() {
         transition={{ duration: 0.5 }}
       >
         <p style={{ color: 'var(--accent3)', fontSize: '0.85rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '0.8rem' }}>
-          Portfolio
+          Projects
         </p>
         <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 700, marginBottom: '3rem' }}>
           Things I've <span style={{ color: 'var(--accent2)' }}>Built</span>

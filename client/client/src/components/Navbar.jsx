@@ -49,7 +49,7 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a href="https://drive.google.com/file/d/10aXghV8NnLIRJC0c97vtk0sr_bzd_Qg1/view?usp=drive_link" download
+            <a href="https://drive.google.com/file/d/1H45CCTMKTRQbw5T3hhQpo7vggLWfJAFh/view?usp=drive_link" download
               style={{
                 padding: '0.5rem 1.2rem', borderRadius: '8px',
                 border: '1px solid var(--accent)', color: 'var(--accent2)',
