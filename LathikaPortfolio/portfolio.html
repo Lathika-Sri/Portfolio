@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Lathika Sri B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#050505;
+  --bg2:#0E0E0E;
+  --ink:#E7E7E7;
+  --ink2:#B5B5B5;
+  --ink3:#6E6E6E;
+  --line:#2A2A2A;
+  --platinum:#CFCFCF;
+  --red:#B93A4A;
+--redbright:#D85B69;
+  --serif:'Playfair Display',serif;
+  --sans:'Inter',sans-serif;
+  --num:'Space Grotesk',sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  font-weight:300;
+  line-height:1.75;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+
+    background:
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(255,255,255,.03),
+        transparent 35%
+      ),
+      radial-gradient(
+        circle at 80% 70%,
+        rgba(255,255,255,.02),
+        transparent 40%
+      );
+
+    pointer-events:none;
+    z-index:0;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--red);color:#fff;}
+::-webkit-scrollbar{width:7px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--line);}
+a:focus-visible,button:focus-visible{outline:1.5px solid var(--platinum);outline-offset:4px;}
+
+/* ============ AMBIENT BACKGROUND ============ */
+#ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.sheen{
+  position:absolute;width:140%;height:900px;left:-20%;
+  background:linear-gradient(115deg,transparent 5%,rgba(207,207,207,0.045) 48%,rgba(207,207,207,0.16) 50%,rgba(207,207,207,0.045) 52%,transparent 65%);
+  transform:rotate(-6deg);
+}
+.sheen.s1{top:-200px;}
+.sheen.s2{top:1400px;}
+.sheen.s3{top:3100px;}
+.sheen.s4{top:4900px;}
+.sheen.s5{top:6600px;}
+
+/* ============ NAV ============ */
+#topbar{
+  position:fixed;top:0;left:0;right:0;z-index:600;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:30px clamp(24px,5vw,72px);
+  mix-blend-mode:difference;
+}
+.brand{
+  font-family:var(--serif);font-weight:500;font-size:17px;letter-spacing:1px;color:#fff;
+}
+.topnav{display:flex;gap:40px;list-style:none;}
+.topnav a{
+  font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#fff;
+  position:relative;padding-bottom:4px;
+}
+.topnav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:#fff;transition:width .4s ease;}
+.topnav a:hover::after{width:100%;}
+@media(max-width:760px){.topnav{display:none;}}
+
+/* ============ HERO ============ */
+#hero{
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:0 24px;position:relative;
+}
+.hero-mark{
+  font-family:var(--num);font-size:11px;letter-spacing:3px;color:var(--ink3);text-transform:uppercase;
+  margin-bottom:48px;opacity:0;animation:fadeUp 1.4s ease .2s forwards;
+}
+.hero-name{
+  font-family:var(--serif);font-weight:500;letter-spacing:2px;
+  font-size:clamp(48px,9vw,128px);line-height:1;color:#fff;
+  opacity:0;animation:fadeUp 1.4s ease .5s forwards;
+}
+.hero-roles{
+  font-family:var(--sans);font-size:14px;font-weight:400;letter-spacing:3px;text-transform:uppercase;
+  color:var(--ink2);margin-top:34px;display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;
+  opacity:0;animation:fadeUp 1.4s ease .9s forwards;
+}
+.hero-roles .sep{color:var(--red);}
+.hero-statement{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(17px,2vw,22px);color:var(--ink2);max-width:640px;margin:44px auto 0;line-height:1.7;
+  opacity:0;animation:fadeUp 1.4s ease 1.3s forwards;
+}
+.hero-cta{
+  margin-top:60px;opacity:0;animation:fadeUp 1.4s ease 1.7s forwards;
+}
+.cta-link{
+  font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:#fff;
+  padding-bottom:10px;border-bottom:1px solid var(--line);transition:border-color .5s ease,letter-spacing .5s ease;
+  display:inline-block;
+}
+.cta-link:hover{border-color:var(--red);letter-spacing:4px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+.scroll-mark{
+  position:absolute;bottom:46px;left:50%;transform:translateX(-50%);
+  font-family:var(--num);font-size:10px;letter-spacing:2px;color:var(--ink3);text-transform:uppercase;
+  opacity:0;animation:fadeUp 1.4s ease 2.1s forwards;display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.scroll-mark .ln{width:1px;height:38px;background:linear-gradient(180deg,var(--ink3),transparent);}
+
+/* ============ SECTION FRAME ============ */
+.sect{position:relative;z-index:1;padding:0 clamp(24px,6vw,90px);max-width:1320px;margin:0 auto;}
+.sect-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:24px;
+  padding:200px 0 80px;border-bottom:1px solid var(--line);
+}
+.sect-eyebrow{font-family:var(--num);font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--red);text-shadow:0 0 12px rgba(156,29,43,.25);}
+.sect-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(34px,5vw,58px);
+  color:#fff;
+  letter-spacing:0.5px;
+  margin-top:14px;
+  position:relative;
+}
+.sect-title::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-14px;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,#6F0F1A,#9C1D2B);
+  transition:width .9s ease;
+}
+.reveal.on .sect-title::after{
+  width:140px;
+}
+.sect-index{font-family:var(--num);font-size:13px;color:var(--ink3);letter-spacing:1px;white-space:nowrap;}
+@media(max-width:700px){.sect-head{flex-direction:column;align-items:flex-start;gap:14px;padding-top:140px;}}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 1.1s ease,transform 1.1s ease;}
+.reveal.on{opacity:1;transform:translateY(0);}
+
+/* ============ ABOUT ============ */
+.about-wrap{padding:90px 0 130px;display:grid;grid-template-columns:0.95fr 1.05fr;gap:90px;align-items:start;}
+.about-frame{
+  position:relative;
+  width:420px;
+  height:420px;
+  aspect-ratio:auto;
+  border-radius:50%;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  border:2px solid rgba(207,207,207,.22);
+  background:
+  radial-gradient(circle at 30% 30%,rgba(255,255,255,.18),transparent 40%),
+  linear-gradient(160deg,#0a0a0a,#020202);
+  overflow:visible;
+}
+.about-frame::before{
+  content:'';
+  position:absolute;
+  inset:-18px;
+  border-radius:50%;
+  border:1px solid rgba(207,207,207,.35);
+  pointer-events:none;
+}
+.about-frame::after{
+  content:'';
+  position:absolute;
+  inset:-38px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.12);
+  pointer-events:none;
+}
+.about-frame .mk{font-family:var(--num);font-size:10px;letter-spacing:3px;color:var(--ink3);text-transform:uppercase;}
+.about-frame .mk2{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink2);}
+.about-copy .lede{
+  font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(20px,2.4vw,27px);color:#fff;
+  line-height:1.6;margin-bottom:36px;
+}
+.about-copy p{color:var(--ink2);font-size:16px;margin-bottom:22px;font-weight:300;}
+.about-copy strong{color:var(--ink);font-weight:500;}
+.about-meta{display:flex;gap:50px;margin-top:48px;padding-top:32px;border-top:1px solid var(--line);flex-wrap:wrap;}
+.about-meta-item .k{font-family:var(--num);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:8px;}
+.about-meta-item .v{font-family:var(--serif);font-size:16px;color:var(--platinum);}
+.about-frame .spark{
+position:absolute;
+top:-18px;
+right:70px;
+font-size:20px;
+color:var(--platinum);
+text-shadow:0 0 15px rgba(255,255,255,.45);
+}
+
+.about-frame:hover{
+transform:translateY(-6px);
+transition:.7s ease;
+box-shadow:0 0 40px rgba(156,29,43,.15);
+}
+.about-frame::before{
+box-shadow:
+0 0 0 1px rgba(156,29,43,.25),
+0 0 25px rgba(156,29,43,.08);
+}
+.about-frame .spark{
+color:#C84E5D;
+animation:sparkGlow 3s ease-in-out infinite;
+}
+@keyframes sparkGlow{
+0%,100%{opacity:.6;transform:scale(1);}
+50%{opacity:1;transform:scale(1.15);}
+}
+
+@media(max-width:900px){.about-wrap{grid-template-columns:1fr;gap:50px;}.about-frame{width:320px;height:320px;}}
+
+/* ============ EDUCATION — museum timeline ============ */
+.edu-line{padding:90px 0 130px;}
+.edu-entry{
+  display:grid;grid-template-columns:200px 1fr;gap:48px;
+  padding:54px 0;border-bottom:1px solid var(--line);align-items:baseline;
+}
+.edu-entry:first-child{border-top:1px solid var(--line);}
+.edu-year{font-family:var(--num);font-size:clamp(28px,3.4vw,40px);color:var(--ink3);letter-spacing:0.5px;}
+.edu-deg{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2.6vw,30px);color:#fff;margin-bottom:10px;}
+.edu-inst{color:var(--ink2);font-size:15px;margin-bottom:14px;font-weight:400;}
+.edu-det{color:var(--ink3);font-size:14.5px;max-width:620px;margin-bottom:16px;}
+.edu-score{font-family:var(--num);font-size:12.5px;color:var(--platinum);letter-spacing:1px;}
+@media(max-width:700px){.edu-entry{grid-template-columns:1fr;gap:16px;}}
+
+/* ============ PROJECTS — exhibitions ============ */
+.proj-wrap{padding:90px 0 130px;}
+.proj-entry{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.proj-visual{
+    overflow:hidden;
+    border-radius:20px;
+}
+
+.proj-visual img{
+    width:100%;
+    display:block;
+    border-radius:20px;
+
+    transition:
+      transform .8s ease,
+      filter .8s ease;
+}
+
+.proj-visual:hover img{
+    transform:scale(1.03);
+}
+.proj-entry{
+  border-bottom:1px solid var(--line);padding:80px 0;
+  display:grid;grid-template-columns:1fr 0.9fr;gap:70px;align-items:start;
+}
+.proj-entry:first-child{border-top:1px solid var(--line);}
+.proj-lot{
+font-family:var(--num);
+font-size:14px;
+color:var(--red);
+letter-spacing:2px;
+margin-bottom:20px;
+}
+.proj-lot::before{
+content:'◆ ';
+color:#9C1D2B;
+}
+.proj-name{font-family:var(--serif);font-weight:600;font-size:clamp(32px,4.6vw,54px);color:#fff;line-height:1.08;margin-bottom:8px;}
+.proj-cat{font-family:var(--sans);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:32px;}
+.proj-story{color:var(--ink2);font-size:16px;line-height:1.85;margin-bottom:28px;max-width:560px;}
+.proj-tech{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;}
+.proj-tech span{font-family:var(--num);font-size:11px;letter-spacing:1px;color:var(--platinum);padding-bottom:3px;border-bottom:1px solid var(--line); }
+.proj-tech span{
+    transition:.4s ease;
+}
+
+.proj-tech span:hover{
+    color:#C84E5D;
+    border-bottom-color:#C84E5D;
+    transform:translateY(-2px);
+}
+.proj-links{display:flex;gap:32px;}
+.proj-link{
+  font-family:var(--sans);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink2);
+  border-bottom:1px solid var(--line);padding-bottom:6px;transition:color .35s,border-color .35s;
+}
+.proj-link:hover{color:#fff;border-color:var(--red);}
+.proj-visual{
+    aspect-ratio:4/3;
+    overflow:hidden;
+    border-radius:20px;
+    position:relative;
+}
+
+.proj-visual img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+}
+.proj-visual::before{display:none}
+.proj-visual .txt{font-family:var(--num);font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink3);}
+@media(max-width:900px){.proj-entry{grid-template-columns:1fr;gap:36px;}.proj-visual{order:-1;max-width:420px;}}
+
+/* ============ SKILLS — editorial ============ */
+.skills-wrap{padding:90px 0 130px;}
+.skill-cat{
+  display:grid;grid-template-columns:220px 1fr;gap:40px;
+  padding:38px 0;border-bottom:1px solid var(--line);align-items:baseline;
+}
+.skill-items span:hover,
+.skill-items:hover{
+    color:#C84E5D;
+}
+.skill-cat:first-child{border-top:1px solid var(--line);}
+.skill-cat-name{font-family:var(--serif);font-weight:500;font-size:20px;color:#fff;}
+.skill-items{font-family:var(--sans);font-size:15px;color:var(--ink2);line-height:2;}
+.skill-items .sep{color:var(--line);margin:0 12px;}
+@media(max-width:700px){.skill-cat{grid-template-columns:1fr;gap:12px;}}
+
+/* ============ ACHIEVEMENTS — annual report ============ */
+.ach-stats{padding:90px 0 0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.ach-stat{padding:48px 24px;text-align:center;border-right:1px solid var(--line);}
+.ach-stat:last-child{border-right:none;}
+.ach-stat-num{font-family:var(--num);font-weight:500;font-size:clamp(40px,5.5vw,64px);color:#fff;line-height:1;}
+.ach-stat-label{font-family:var(--sans);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-top:12px;}
+@media(max-width:700px){.ach-stats{grid-template-columns:repeat(2,1fr);}.ach-stat{border-bottom:1px solid var(--line);}}
+
+.ach-entries{padding:80px 0 130px;}
+.ach-entry{display:grid;grid-template-columns:90px 1fr;gap:30px;padding:34px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+.ach-entry:first-child{border-top:1px solid var(--line);}
+.ach-yr{font-family:var(--num);font-size:14px;color:var(--ink3);}
+.ach-title{font-family:var(--serif);font-weight:500;font-size:19px;color:#fff;margin-bottom:8px;}
+.ach-detail{color:var(--ink2);font-size:14.5px;max-width:680px;}
+
+/* ============ CONTACT ============ */
+.contact-wrap{padding:110px 0 130px;text-align:center;}
+.contact-statement{
+  font-family:var(--serif);font-weight:500;font-size:clamp(34px,6vw,76px);color:#fff;line-height:1.15;margin-bottom:70px;
+}
+.contact-statement em{color:var(--red);font-style:italic;}
+.contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:0;}
+.contact-link{
+  font-family:var(--sans);font-size:16px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink2);
+  padding:18px 36px;border-left:1px solid var(--line);transition:color .4s;
+}
+.contact-link:first-child{border-left:none;}
+.contact-link:hover{color:#fff;}
+.contact-link .small{display:block;font-family:var(--num);font-size:12px;letter-spacing:1px;color:var(--ink3);margin-top:6px;text-transform:none;}
+@media(max-width:700px){.contact-link{border-left:none;border-top:1px solid var(--line);width:100%;}.contact-link:first-child{border-top:none;}}
+
+/* ============ FOOTER ============ */
+footer{
+  border-top:1px solid var(--line);padding:34px clamp(24px,6vw,90px);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+  font-family:var(--num);font-size:11px;letter-spacing:1px;color:var(--ink3);position:relative;z-index:1;
+}
+footer .fr{color:var(--red);}
+
+.proj-visual{
+opacity:0;
+transform:translateX(-120px);
+transition:transform 1.4s cubic-bezier(.22,.61,.36,1),opacity 1.4s ease,box-shadow .6s ease;
+}
+.proj-visual.visible{
+opacity:1;
+transform:translateX(0);
+}
+.proj-visual:hover{
+box-shadow:0 20px 60px rgba(156,29,43,.18);
+}
+.topnav a:hover,
+.contact-link:hover,
+.proj-link:hover,
+.skill-cat-name:hover{
+color:#9C1D2B;
+transition:.5s ease;
+}
+
+
+/* ===== Royal Hover Effects ===== */
+.hero-name:hover,
+.sect-title:hover,
+.proj-name:hover,
+.skill-cat-name:hover,
+.brand:hover{
+ color:#9C1D2B !important;
+ transition:.6s ease;
+ text-shadow:0 0 25px rgba(156,29,43,.25);
+}
+
+/* Red sweep underline */
+.sect-title,
+.proj-name{
+ position:relative;
+}
+
+.sect-title:hover::before,
+.proj-name:hover::before{
+ content:'';
+ position:absolute;
+ left:0;
+ bottom:-8px;
+ width:100%;
+ height:2px;
+ background:linear-gradient(90deg,#6F0F1A,#9C1D2B,#6F0F1A);
+ animation:redSweep .8s ease forwards;
+}
+
+@keyframes redSweep{
+ from{
+   transform:scaleX(0);
+   transform-origin:left;
+ }
+ to{
+   transform:scaleX(1);
+   transform-origin:left;
+ }
+}
+
+/* ===== Real Project Animation ===== */
+.proj-entry{
+ overflow:hidden;
+}
+
+.proj-entry .proj-visual{
+ opacity:0;
+ transform:translateX(-220px);
+ filter:blur(6px);
+}
+
+.proj-entry.show .proj-visual{
+ opacity:1;
+ transform:translateX(0);
+ filter:blur(0);
+ transition:
+ transform 1.8s cubic-bezier(.22,.61,.36,1),
+ opacity 1.6s ease,
+ filter 1.6s ease;
+}
+
+.proj-entry.show .proj-name{
+ animation:luxuryText .9s ease;
+}
+
+@keyframes luxuryText{
+ from{
+   opacity:0;
+   transform:translateY(20px);
+ }
+ to{
+   opacity:1;
+   transform:translateY(0);
+ }
+}
+
+/* Photo ring hover */
+.about-frame:hover::before{
+ border-color:#9C1D2B;
+ box-shadow:0 0 40px rgba(156,29,43,.25);
+}
+
+.about-frame:hover::after{
+ border-color:rgba(156,29,43,.4);
+}
+
+.about-frame:hover{
+ transform:translateY(-8px);
+ transition:.8s ease;
+}
+
+
+/* ===== Luxury Uploaded Photo Filter ===== */
+/* #profilePreview{
+filter: sepia(35%) saturate(145%) contrast(115%) brightness(95%);
+} */
+#profilePreview{
+    position:absolute;
+
+    width:95%;
+    height:118%;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+    clip-path:circle(45% at center);
+    object-fit:cover;
+    object-position:center 10%;
+
+    border-radius:50%;
+
+    z-index:1;
+
+    filter:
+      sepia(35%)
+      saturate(145%)
+      contrast(110%)
+      brightness(70%);
+
+    border:2px solid rgba(255,255,255,.08);
+}
+
+/* keep text above image */
+.about-frame .mk,
+.about-frame .mk2{
+    position:absolute;
+    z-index:5;
+    text-align:center;
+    color:#eae4e4;
+    width:100%;
+}
+
+.about-frame .mk:first-of-type{
+    bottom:72px;
+}
+
+.about-frame .mk2{
+    bottom:38px;
+    font-size:18px;
+}
+
+.about-frame .mk:last-of-type{
+    bottom:12px;
+    font-size:10px;
+    letter-spacing:4px;
+}
+/* ===== Hover only on premium elements ===== */
+.sect-title:hover,
+.skill-cat-name:hover,
+.proj-name:hover,
+.topnav a:hover,
+.contact-link:hover,
+.brand:hover{
+color:#9C1D2B !important;
+text-shadow:0 0 18px rgba(156,29,43,.22);
+transition:.45s ease;
+}
+
+/* Normal text should never turn red */
+.about-copy p:hover,
+.edu-det:hover,
+.edu-inst:hover,
+.ach-detail:hover,
+.proj-story:hover{
+color:inherit !important;
+text-shadow:none !important;
+}
+
+/* Royal underline */
+.skill-cat-name,
+.proj-name,
+.sect-title{
+position:relative;
+}
+
+.sect-title:hover::before,
+.skill-cat-name:hover::before,
+.proj-name:hover::before{
+content:'';
+position:absolute;
+left:0;
+bottom:-8px;
+width:100%;
+height:2px;
+background:linear-gradient(90deg,#6F0F1A,#9C1D2B,#6F0F1A);
+animation:royalLine .6s ease forwards;
+}
+
+@keyframes royalLine{
+from{transform:scaleX(0);transform-origin:left;}
+to{transform:scaleX(1);transform-origin:left;}
+}
+.about-copy strong{
+    color:#F1F1F1;
+    font-weight:600;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.08);
+
+    position:relative;
+}
+.proj-wrap{
+    counter-reset:projectCounter;
+}
+
+.proj-lot::after{
+    counter-increment:projectCounter;
+    content:"0" counter(projectCounter);
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="ambient">
+  <div class="sheen s1"></div>
+  <div class="sheen s2"></div>
+  <div class="sheen s3"></div>
+  <div class="sheen s4"></div>
+  <div class="sheen s5"></div>
+</div>
+
+<header id="topbar">
+  <div class="brand">Lathika Sri</div>
+  <ul class="topnav">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#achievements">Acheivements & Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero">
+  <div class="hero-mark">Hi, All I'M</div>
+  <h1 class="hero-name">LATHIKA SRI</h1>
+  <div class="hero-roles">Software Engineer <span class="sep">/</span> Full Stack Developer <span class="sep">/</span> Problem Solver</div>
+  <p class="hero-statement">Building thoughtful software that balances elegance, performance and purpose.</p>
+  <div class="hero-cta"><a href="#projects" class="cta-link">Explore Work</a></div>
+  <div class="scroll-mark"><span>Scroll</span><div class="ln"></div></div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about" class="sect">
+  <div class="sect-head reveal">
+    <div>
+      <span class="sect-eyebrow">Chapter One</span>
+      <h2 class="sect-title">About</h2>
+    </div>
+    <div class="sect-index">01 / 06</div>
+  </div>
+
+  <div class="about-wrap">
+    <div class="about-frame reveal"><div class="spark">✦</div><input
+    type="file"
+    id="photoUpload"
+    accept="image/*"
+    hidden
+    style="position:absolute;inset:0;opacity:0;cursor:pointer;z-index:5;">
+    <img
+    src="assets/photo-1-portfolio.jpeg"
+    id="profilePreview"
+    
+   >      
+      <span class="mk2">LATHIKA SRI</span>
+      <span class="mk">ENGINEER • DESIGNER • BUILDER</span>
+    </div>
+    <div class="about-copy reveal">
+      <p class="lede">I think in systems — the way a problem breaks down, the way a solution should feel inevitable once it's built.</p>
+      <p>
+        I'm a final-year Information Technology student who approaches engineering as more than writing code—it's about <strong>making thoughtful decisions, solving problems with clarity, and building solutions that stand the test of time</strong>. I value <strong>clean architecture, intentional design choices, and creating software that is both reliable and meaningful</strong>.
+      </p>
+      
+      <p>
+        Over the past three years, I've explored the full spectrum of development, from <strong>crafting user experiences on the frontend</strong> to <strong>building scalable systems on the backend</strong>, while increasingly working at the intersection of <strong>AI and product innovation</strong>. My passion for problem-solving has led me to solve <strong>350+ algorithmic challenges on LeetCode</strong>, strengthening my ability to think critically, work within constraints, and approach complex problems with confidence.
+      </p>
+      
+      <p>
+        I believe strong engineering is built on <strong>continuous learning, adaptability, and effective collaboration</strong>. Whether I'm learning a new technology, refining an existing solution, or contributing to a team, I focus on <strong>delivering value with curiosity, discipline, and attention to detail</strong>.
+      </p>
+      <div class="about-meta">
+        <div class="about-meta-item"><span class="k">Institution</span><span class="v">SIET</span></div>
+        <div class="about-meta-item"><span class="k">Degree</span><span class="v">B.Tech, IT</span></div>
+        <div class="about-meta-item"><span class="k">CGPA</span><span class="v">CGPA 9.00</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EDUCATION ═══════════ -->
+<section id="education" class="sect">
+  <div class="sect-head reveal">
+    <div>
+      <span class="sect-eyebrow">Chapter Two</span>
+      <h2 class="sect-title">Education</h2>
+    </div>
+    <div class="sect-index">02 / 06</div>
+  </div>
+
+  <div class="edu-line reveal">
+    <div class="edu-entry">
+      <div class="edu-year">2023<br/>—<br/>2027</div>
+      <div>
+        <div class="edu-deg">B.Tech, Information Technology</div>
+        <div class="edu-inst">Sri Shakthi Institute of Engineering and Technology</div>
+        <div class="edu-det">A foundation built in full-stack development, algorithms, and system design — sharpened through continuous participation in coding competitions and technical events.</div>
+        <div class="edu-score">CGPA 9.00 — through semester five</div>
+      </div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-year">2022<br/>—<br/>2023</div>
+      <div>
+        <div class="edu-deg">Class XII, Higher Secondary</div>
+        <div class="edu-inst">PSGR Krishnammal Higher Secondary School For Girls</div>
+        <div class="edu-det">
+            Where logical reasoning met scientific curiosity, laying the groundwork for my journey into technology.
+            </div>        <div class="edu-score">83% </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROJECTS ═══════════ -->
+<section id="projects" class="sect">
+  <div class="sect-head reveal">
+    <div>
+      <span class="sect-eyebrow">Chapter Three</span>
+      <h2 class="sect-title">Projects Built</h2>
+    </div>
+    <div class="sect-index">03 / 06</div>
+  </div>
+
+  <div class="proj-wrap">
+    <div class="proj-entry reveal">
+      <div>
+        <div class="proj-lot"></div>
+        <div class="proj-name">ProReady</div>
+        <div class="proj-cat">AI Powered Full Stack Platform</div>
+        <p class="proj-story">An AI-powered full-stack application built to automate resume generation, personalized learning roadmaps, and project guidance for students. The system converts raw, unstructured input into industry-ready output by integrating external AI APIs directly into the product logic — not bolted on as an afterthought, but designed as the core mechanism.</p>
+        <div class="proj-tech"><span>React</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>AI API Integration</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/Lathika-Sri/ProReady-Project" target="_blank" class="proj-link">GitHub</a>
+          <a href="https://www.linkedin.com/posts/lathikasri6_fullstackproject-proready-ugcPost-7428708228580065280-9LF8/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEcxQcoBHeDvKHLG4rmFHM9v7GWnQ87AazM" target="_blank" class="proj-link">LinkedIn</a>
+        </div>
+      </div>
+      <div class="proj-visual">
+        <img src="assets/proready.png" alt="ProReady">
+      </div>
+    </div>
+
+    <div class="proj-entry reveal">
+      <div>
+        <div class="proj-lot"></div>
+        <div class="proj-name">Intelligent Public Transport System</div>
+        <div class="proj-cat">Simulation Backend, Java</div>
+        <p class="proj-story">A simulation-based backend engineered for real-time bus tracking, ETA prediction, and crowd analysis — built entirely without GPS dependency. Multithreading concurrently simulates bus movement across multiple routes, while RESTful APIs expose structured transport data for live, real-time decision-making.</p>
+        <div class="proj-tech"><span>Java</span><span>Spring Boot</span><span>REST API</span><span>Multithreading</span><span>System Design</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/Lathika-Sri/Intelligent-Public-Transport-System" target="_blank" class="proj-link">GitHub</a>
+        </div>
+      </div>
+      <div class="proj-visual">
+        <img src="assets/ipts.png" alt="ProReady">
+      </div>
+    </div>
+
+    <div class="proj-entry reveal">
+      <div>
+        <div class="proj-lot"></div>
+        <div class="proj-name">LightLine</div>
+        <div class="proj-cat">Android Application</div>
+        <p class="proj-story">A lightweight Android application enabling video calling with simultaneous flashlight support during rear-camera use — solving a small, specific, real problem with disproportionate care. Camera switching, meeting link sharing, and real-time collaboration were all built with a focus on performance and an interface that gets out of the way.</p>
+        <div class="proj-tech"><span>Java</span><span>Android SDK</span><span>Mobile UI Design</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/Lathika-Sri/LightlineApp" target="_blank" class="proj-link">GitHub</a>
+          <a href="https://www.linkedin.com/posts/lathikasri6_androiddev-camerax-jitsimeet-ugcPost-7357618891902083073-KtWV/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEcxQcoBHeDvKHLG4rmFHM9v7GWnQ87AazM" target="_blank" class="proj-link">LinkedIn</a>
+        </div>
+      </div>
+      <div class="proj-visual">
+        <img src="assets/lightline.png" alt="ProReady">
+      </div>
+    </div>
+
+    <div class="proj-entry reveal">
+      <div>
+        <div class="proj-lot"></div>
+        <div class="proj-name">LinkReft</div>
+        <div class="proj-cat">Full Stack URL Shortening Platform</div>
+        <p class="proj-story">A modern link management platform that compresses long URLs into short, shareable ones — with secure authentication, custom links, and real-time click analytics surfaced through an intuitive dashboard. Built for usability and security in equal measure, never trading one for the other.</p>
+        <div class="proj-tech"><span>React</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>JWT</span><span>REST API</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/Lathika-Sri/ProReady-Project" target="_blank" class="proj-link">GitHub</a>
+          <a href="https://www.linkedin.com/posts/lathikasri6_fullstackproject-proready-ugcPost-7428708228580065280-9LF8/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEcxQcoBHeDvKHLG4rmFHM9v7GWnQ87AazM" target="_blank" class="proj-link">LinkedIn</a>
+        </div>
+      </div>
+      <div class="proj-visual">
+        <img src="assets/linkreft.png" alt="ProReady">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SKILLS ═══════════ -->
+<section id="skills" class="sect">
+  <div class="sect-head reveal">
+    <div>
+      <span class="sect-eyebrow">Chapter Four</span>
+      <h2 class="sect-title">Capabilities</h2>
+    </div>
+    <div class="sect-index">04 / 06</div>
+  </div>
+
+  <div class="skills-wrap reveal">
+    <div class="skill-cat">
+      <div class="skill-cat-name">Languages</div>
+      <div class="skill-items">C <span class="sep">/</span> Java(Advanced) <span class="sep">/</span> C++  <span class="sep">/</span> Python</div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-name">Frontend</div>
+      <div class="skill-items">HTML <span class="sep">/</span> CSS <span class="sep">/</span> JavaScript <span class="sep">/</span> React.js</div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-name">Backend</div>
+      <div class="skill-items">Node.js <span class="sep">/</span> Express.js <span class="sep">/</span> Spring Boot</div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-name">Database</div>
+      <div class="skill-items">MongoDB <span class="sep">/</span> MySQL</div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-name">Tools</div>
+      <div class="skill-items">Git <span class="sep">/</span> GitHub <span class="sep">/</span> Figma <span class="sep">/</span> Adobe XD</div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-name">Soft Skills</div>
+      <div class="skill-items">Leadership <span class="sep">/</span> Communication <span class="sep">/</span> Responsibility <span class="sep">/</span> TimeManagement</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ACHIEVEMENTS ═══════════ -->
+<section id="achievements" class="sect">
+  <div class="sect-head reveal">
+    <div>
+      <span class="sect-eyebrow">Chapter Five</span>
+      <h2 class="sect-title">Professional Highlights</h2>
+    </div>
+    <div class="sect-index">05 / 06</div>
+  </div>
+
+  <div class="ach-stats reveal">
+    <div class="ach-stat"><div class="ach-stat-num">350+</div><div class="ach-stat-label">Problems Solved</div></div>
+    <div class="ach-stat"><div class="ach-stat-num">9.0</div><div class="ach-stat-label">CGPA</div></div>
+    <div class="ach-stat"><div class="ach-stat-num" id="projectCount"></div><div class="ach-stat-label">Projects Shipped</div></div>
+    <div class="ach-stat"><div class="ach-stat-num" id = "certCount"></div><div class="ach-stat-label">Certifications</div></div>
+  </div>
+
+  <div class="ach-entries reveal">
+    <div class="ach-entry">
+      <div class="ach-yr">1</div>
+      <div><div class="ach-title">3rd Place, Design Odyssey</div><div class="ach-detail">Secured 3rd place in Design Odyssey, part of Kalam 2024 at Sri Shakthi Institute of Engineering and Technology.</div></div>
+    </div>
+    <div class="ach-entry">
+      <div class="ach-yr">2</div>
+      <div><div class="ach-title">350+ LeetCode Problems Solved</div><div class="ach-detail">Spanning Arrays, Strings, and Matrices through advanced Dynamic Programming, Trees, Graphs, and Backtracking.</div></div>
+    </div>
+    <div class="ach-entry">
+      <div class="ach-yr">3</div>
+      <div><div class="ach-title">Event Coordinator, Kalam 2025</div><div class="ach-detail">Led and managed department-level activities at Sri Shakthi Institute of Engineering and Technology.</div></div>
+    </div>
+    <div class="ach-entry">
+      <div class="ach-yr">4</div>
+      <div><div class="ach-title">Professional Certifications</div><div class="ach-detail">Great Learning — Java · TCS iON Young Professional · Lean Six Sigma Yellow Belt (96%) · Great Learning — UI/UX · NPTEL Elite, Cloud IoT Edge ML (65%).</div></div>
+    </div>
+    <div class="ach-entry">
+      <div class="ach-yr">5</div>
+      <div><div class="ach-title">KPR Intercollege Fiesta</div><div class="ach-detail">Attended technical workshops and competed in a hackathon — collaboration, innovation, and practical software development.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section id="contact" class="sect">
+  <div class="contact-wrap reveal">
+    <h2 class="contact-statement">"Great products are built twice —
+        <br/><em>first in thought,
+            then in reality."</em></h2>
+    <div class="contact-links">
+      <a href="mailto:lathikasribalamurugan6@gmail.com" class="contact-link">Email<span class="small">lathikasribalamurugan6@gmail.com</span></a>
+      <a href="https://www.linkedin.com/in/lathikasri6/" target="_blank" class="contact-link">LinkedIn<span class="small">in/lathikasri6</span></a>
+      <a href="https://github.com/Lathika-Sri" target="_blank" class="contact-link">GitHub<span class="small">Lathika-Sri</span></a>
+      <a href="https://leetcode.com/u/lathikasribleetcode/" target="_blank" class="contact-link">LeetCode<span class="small">lathikasribleetcode</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Built by Lathika Sri B <span class="fr">·</span> 2026</div>
+  <div>Coimbatore, India</div>
+</footer>
+
+<script>
+function checkReveal(){
+  document.querySelectorAll('.reveal').forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight - 90) el.classList.add('on');
+  });
+}
+window.addEventListener('scroll', checkReveal);
+window.addEventListener('load', checkReveal);
+checkReveal();
+</script>
+
+<script>
+document.querySelectorAll('.proj-visual').forEach(el=>{
+ const obs=new IntersectionObserver(entries=>{
+   entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');}
+   });
+ },{threshold:.25});
+ obs.observe(el);
+});
+
+const upload=document.getElementById('photoUpload');
+const preview=document.getElementById('profilePreview');
+
+if(upload){
+ upload.addEventListener('change',e=>{
+   const file=e.target.files[0];
+   if(file){
+      preview.src=URL.createObjectURL(file);
+      preview.style.display='block';
+      document.querySelectorAll('.about-frame .mk,.about-frame .mk2').forEach(x=>x.style.display='none');
+   }
+ });
+}
+</script>
+
+
+<script>
+document.querySelectorAll('.proj-entry').forEach(card=>{
+ const observer=new IntersectionObserver(entries=>{
+   entries.forEach(entry=>{
+      if(entry.isIntersecting){
+         entry.target.classList.add('show');
+      }
+   });
+ },{
+   threshold:0.35
+ });
+ observer.observe(card);
+});
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    
+        const projects =
+            document.querySelectorAll(".proj-entry").length;
+    
+        const certifications =
+            document.querySelectorAll(".ach-entry").length;
+    
+        document.getElementById("projectCount").textContent =
+            projects + "+";
+    
+        document.getElementById("certCount").textContent =
+            certifications + "+";
+    
+    });
+    </script>
+</body>
+</html>
