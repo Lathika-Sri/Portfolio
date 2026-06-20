@@ -634,7 +634,44 @@ to{transform:scaleX(1);transform-origin:left;}
     content:"0" counter(projectCounter);
 }
 
+.nav-resume{
+    padding:10px 18px;
 
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:999px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    transition:.35s ease;
+}
+
+.nav-resume:hover{
+    color:#C84E5D;
+
+    border-color:#C84E5D;
+
+    box-shadow:
+      0 0 18px rgba(200,78,93,.15);
+}
+
+.nav-resume.download{
+    
+    
+    color:#fff;
+}
+
+.nav-resume.download:hover{
+    background:transparent;
+}
 </style>
 </head>
 <body>
@@ -656,6 +693,21 @@ to{transform:scaleX(1);transform-origin:left;}
     <li><a href="#skills">Skills</a></li>
     <li><a href="#achievements">Acheivements & Certifications</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li>
+      <a href="assets/LathikaSri-Resume.pdf"
+         target="_blank"
+         class="nav-resume">
+         View Resume
+      </a>
+  </li>
+  
+  <li>
+      <a href="assets/LathikaSri-Resume.pdf"
+         download
+         class="nav-resume download">
+         Download Resume
+      </a>
+  </li>
   </ul>
 </header>
 
@@ -919,6 +971,7 @@ to{transform:scaleX(1);transform-origin:left;}
       <a href="https://www.linkedin.com/in/lathikasri6/" target="_blank" class="contact-link">LinkedIn<span class="small">in/lathikasri6</span></a>
       <a href="https://github.com/Lathika-Sri" target="_blank" class="contact-link">GitHub<span class="small">Lathika-Sri</span></a>
       <a href="https://leetcode.com/u/lathikasribleetcode/" target="_blank" class="contact-link">LeetCode<span class="small">lathikasribleetcode</span></a>
+      <a href="https://www.geeksforgeeks.org/profile/lathikasribatocp?tab=activity" target="_blank" class="contact-link">GFG<span class="small">lathikasribatocp</span></a>
     </div>
   </div>
 </section>
